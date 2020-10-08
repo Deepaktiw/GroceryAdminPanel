@@ -1,0 +1,14 @@
+.itemIcon {
+     border-radius: 50%;
+   }
+.confirm{
+     background:  rgba(0, 128, 128, 1);
+     margin-left: 8px;
+}
+
+.reject{
+     background:lightgray;
+}
+
+
+ 

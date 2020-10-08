@@ -1,0 +1,15 @@
+::ng-deep .highlight{
+     color: white;
+     background: #673AB7;
+   }
+
+
+   mat-cell, .mat-cell {
+     min-height:auto; 
+     padding: 12px 16px 12px 0;
+   }
+
+   .image{
+     width:210px;
+
+}

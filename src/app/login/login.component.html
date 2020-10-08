@@ -1,0 +1,50 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#20b04b" type="ball-clip-rotate"></ngx-spinner>
+<section id="consumer-login">
+  <div class="container col-lg-4 col-md-6 col-sm-8 col-xs animated fadeIn" style="float:none;">
+    <div class="div-center text-center">
+      <mat-card class="mat-elevation-z8 mt-5 px-5">
+        <form class="form" #loginForm="ngForm" (ngSubmit)="login(vm)">
+          <h3 class="p-4">SignIn to ABC</h3>
+          <mat-card-content>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" ngModel name="email" id="email" #email="ngModel"
+                  [(ngModel)]="vm.email" type="email"
+                  pattern="[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,125}[a-zA-Z]{2,63}$" required>
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-hint *ngIf="email.touched && email.invalid">
+                  <mat-error *ngIf="email.errors.required">Email is required</mat-error>
+                  <mat-error *ngIf="email.errors && email.errors.pattern">Invalid email</mat-error>
+                </mat-hint>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" ngModel name="password" id="password" #password="ngModel"
+                  [(ngModel)]="vm.password" type="password" required>
+                <mat-icon matSuffix>lock</mat-icon>
+                <mat-hint *ngIf="password.touched && password.invalid">
+                  <mat-error *ngIf="password.errors.required">Password is required</mat-error>
+                </mat-hint>
+              </mat-form-field>
+            </p>
+            <div class="text-center mt-3">
+              <!-- <mat-checkbox labelPosition="After">Stay SignedIn</mat-checkbox> -->
+              <a routerLink="/forgot-password">Forgot Password?</a>
+            </div>
+            <div class="text-center mt-3">
+              <button mat-raised-button class="btn-block p-1" color="primary" type="submit"
+                [disabled]="!loginForm.form.valid">Login</button>
+            </div>
+
+            <div class="text-center mt-5">Don't have an account?
+              <a routerLink="/registration" color="primary">Sign Up</a>
+            </div>
+          </mat-card-content>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</section>

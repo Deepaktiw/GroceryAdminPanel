@@ -1,0 +1,270 @@
+<section>
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>Business Details</mat-card-title>
+    </mat-card-header>
+    <div class="row mb-4">
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4" [routerLink]="[ '/vendor/manageBookings' ]"
+          style="box-shadow: 0px 2px 10px 0px #0613143d;background-color: #822972;cursor: pointer;">
+          <h6 class="custom-white">Pending Orders</h6>
+          <p class="custom-light-gray"><span class="custom-white float-left font-weight-normal">212</span></p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4" [routerLink]="[ '/vendor/manageBookings' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #2a417c;cursor: pointer;">
+          <h6 class="custom-white">Active Orders </h6>
+          <p class="custom-light-gray"> <span class="custom-white" style="float:left;font-weight: 500;">232</span>
+          </p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4" [routerLink]="[ '/vendor/earnings' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #0a7670;cursor: pointer;">
+          <h6 class="custom-white">Delivered Orders </h6>
+          <p class="custom-light-gray"> <span class="custom-white" style="float:left;font-weight: 500;">2323</span></p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4 " [routerLink]="[ '/vendor/earnings' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #0a7644;cursor: pointer;">
+          <h6 class="custom-white"> Cancelled Orders </h6>
+          <p class="custom-light-gray"><span class="custom-white" style="float: left;;font-weight: 500;">2323</span></p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4  mt-2" [routerLink]="[ '/vendor/earnings' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #76540a;cursor: pointer;">
+          <h6 class="custom-white">Stores </h6>
+          <p class="custom-light-gray"> <span class="custom-white" style="float:left;font-weight: 500;">2323</span></p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4  mt-2" [routerLink]="[ '/vendor/manage-category' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #0a4b76;cursor: pointer;">
+          <h6 class="custom-white">Categories </h6>
+          <p class="custom-light-gray"><span class="custom-white" style="float:left;font-weight: 500;">2323</span></p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4  mt-2" [routerLink]="[ '/vendor/earnings' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #450a76;cursor: pointer;">
+          <h6 class="custom-white">Items </h6>
+          <p class="custom-light-gray"><span class="custom-white" style="float:left;font-weight: 500;">2323</span>
+          </p>
+        </mat-card>
+      </div>
+      <div class="col-sm-10 col-md-3 col-lg-3">
+        <mat-card class="p-4  mt-2" [routerLink]="[ '/vendor/earnings' ]"
+          style="box-shadow: 0px 2px 10px 0px rgba(10, 6, 20, 0.24);background-color: #760a45;cursor: pointer;">
+          <h6 class="custom-white">Promotions</h6>
+          <p class="custom-light-gray"><span class="custom-white" style="float:left;font-weight: 500;">2323</span>
+          </p>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</section>
+
+<section class="mt-3">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field appearance="outline" style="min-width:100%;">
+            <mat-label>Filter Type</mat-label>
+            <mat-select ngModel name="earning" [(ngModel)]="earningType" required>
+              <mat-option value="daily">Daily</mat-option>
+              <mat-option value="weekly">Weekly</mat-option>
+              <mat-option value="monthly">Monthly</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-9">
+          <form #filterForm="ngForm">
+            <mat-form-field appearance="outline">
+              <input matInput [matDatepicker]="pickerFrom" name="from" [(ngModel)]="vm.fromDate"
+                placeholder="Choose from date" (click)="pickerFrom.open()" readonly required>
+              <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+              <mat-datepicker #pickerFrom disabled="false"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <input matInput [min]="vm.fromDate" [matDatepicker]="pickerTo" name="to" [(ngModel)]="vm.toDate"
+                placeholder="Choose to date" (click)="pickerTo.open()" readonly required>
+              <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+              <mat-datepicker #pickerTo disabled="false"></mat-datepicker>
+            </mat-form-field>
+            <button class="mx-2 py-2 px-4" style="margin-top:-10px;" type="submit" color="primary" mat-raised-button
+              [disabled]="!filterForm.form.valid">Filter</button>
+          </form>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="mt-3">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-content>
+      <canvas id="lineCharts"></canvas>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="mt-3">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-content>
+      <mat-tab-group dynamicHeight>
+        <mat-tab label="Pending">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 my-3">
+              <div class="card" style="border:1px solid #c4c4c4;">
+                <div class="card-header custom-white bg-custom-primary-dark">
+                  <span class="font-weight-normal float-right">ORDER DATE: <span>May 11 2020 , 09:21 PM</span></span>
+                  <span class="font-weight-normal float-left">ORDER ID: <span>#12345</span></span>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-9 col-md-9 text-left">
+                      <h6 class=" custom-primary font-weight-bold">
+                        <img src="assets/img/user-small.png" height="20" matTooltip="Paid through card"
+                          class="itemIcon" />&nbsp;Maggi x 1
+                      </h6>
+                    </div>
+                    <span class="font-weight-normal float-right mt-4 ">Payment - <span
+                        class="font-weight-bold">Cash</span></span>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 text-left">
+                      <span class="font-weight-normal float-left font-weight-bold ">Order Price - <span>
+                        ₹199</span></span>
+                      <br>
+                      <span class="font-weight-normal float-left  ">User Contact - <span>9886337232</span></span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 ">
+                      <button mat-flat-button class="reject">Reject</button>
+                      <button mat-flat-button class="confirm mr-1">Confirm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 my-3">
+              <div class="card" style="border:1px solid #c4c4c4;">
+                <div class="card-header custom-white bg-custom-primary-dark">
+                  <span class="font-weight-normal float-right">ORDER DATE: <span>May 11 2020 , 09:21 PM</span></span>
+                  <span class="font-weight-normal float-left">ORDER ID: <span>#1344</span></span>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-9 col-md-9 text-left">
+                      <h6 class=" custom-primary font-weight-bold">
+                        <img src="assets/img/user-small.png" height="20" matTooltip="Paid through card"
+                          class="itemIcon" />&nbsp;Shampoo x 1 More
+                      </h6>
+                    </div>
+                    <span class="font-weight-normal float-right mt-4 ">Payment - <span
+                        class="font-weight-bold">Card</span></span>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 text-left">
+                      <span class="font-weight-normal float-left font-weight-bold ">Order Price - <span>
+                        ₹13</span></span>
+                      <br>
+                      <span class="font-weight-normal float-left  ">User Contact - <span>9886333432</span></span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 ">
+                      <button mat-flat-button class="reject">Reject</button>
+                      <button mat-flat-button class="confirm mr-1">Confirm</button>
+                      <!-- <p>
+                        <button mat-stroked-button class="custom-purple "
+                          [routerLink]="[ '/vendor/bookingDetail', 123 ]">View Details</button></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </mat-tab>
+        <mat-tab label="Active">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 my-3">
+              <div class="card" style="border:1px solid #c4c4c4;">
+                <div class="card-header custom-white bg-custom-primary-dark">
+                  <span class="font-weight-normal float-right">ORDER DATE: <span>May 11 2020 , 09:21 PM</span></span>
+                  <span class="font-weight-normal float-left">ORDER ID: <span>#12345</span></span>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-9 col-md-9 text-left">
+                      <h6 class=" custom-primary font-weight-bold">
+                        <img src="assets/img/user-small.png" height="20" matTooltip="Paid through card"
+                          class="itemIcon" />&nbsp;Maggi x 1
+                      </h6>
+                    </div>
+                    <span class="font-weight-normal float-right mt-4 ">Payment - <span
+                        class="font-weight-bold">Cash</span></span>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 text-left">
+                      <span class="font-weight-normal float-left font-weight-bold ">Order Price - <span>
+                        ₹199</span></span>
+                      <br>
+                      <span class="font-weight-normal float-left  ">User Contact - <span>9886337232</span></span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 ">
+                      <button mat-flat-button class="confirm mr-1">Confirm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 my-3">
+              <div class="card" style="border:1px solid #c4c4c4;">
+                <div class="card-header custom-white bg-custom-primary-dark">
+                  <span class="font-weight-normal float-right">ORDER DATE: <span>May 11 2020 , 09:21 PM</span></span>
+                  <span class="font-weight-normal float-left">ORDER ID: <span>#1344</span></span>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-9 col-md-9 text-left">
+                      <h6 class=" custom-primary font-weight-bold">
+                        <img src="assets/img/user-small.png" height="20" matTooltip="Paid through card"
+                          class="itemIcon" />&nbsp;Shampoo x 1 More
+                      </h6>
+                    </div>
+                    <span class="font-weight-normal float-right mt-4 ">Payment - <span
+                        class="font-weight-bold">Card</span></span>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 text-left">
+                      <span class="font-weight-normal float-left font-weight-bold ">Order Price - <span>
+                        ₹13</span></span>
+                      <br>
+                      <span class="font-weight-normal float-left  ">User Contact - <span>9886333432</span></span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 ">
+                      <button mat-flat-button class="confirm mr-1">Confirm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+
+    </mat-card-content>
+  </mat-card>
+
+</section>

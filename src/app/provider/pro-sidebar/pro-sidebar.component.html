@@ -1,0 +1,84 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <app-provider-navbar [snav]="snav" style="z-index: 2;"></app-provider-navbar>
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav class="boxShadow-light" #snav [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="8" style="min-width: 10px;">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/vendor/manage-dashboard" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Dashboard</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/baseline_analytics_black_18dp.png"
+              style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manageUser" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Users</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/User-icon.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-orders" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Orders</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/orders-icon.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-product" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Products</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/icon-product.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/Banners" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Banners</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/Banner.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-category" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Category</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/category-icon.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-sub-category" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Sub Category</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/icon-sub-category.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-brand" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Brand</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/icon-brand.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-discount" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Discount</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/icon-discount.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/product-image" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Products Image</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/icon-product-image.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <!-- <a mat-list-item routerLink="/vendor/manage-payment" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Payments</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/payment-icon.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-transaction" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Transactions</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/transaction-icon.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a> -->
+        <a mat-list-item routerLink="/vendor/manage-deliverydate" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Delivery Date</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/date-range.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+        <a mat-list-item routerLink="/vendor/manage-deliverytime" routerLinkActive="active-list-item">
+          <h2 style="font-weight:100;" matLine>Delivery Time</h2>
+          <mat-icon matListIcon><img src="assets/img/provider/icon-delivery-time.png" style="vertical-align:unset;" />
+          </mat-icon>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color: #f7f9fb;" class="p-2">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

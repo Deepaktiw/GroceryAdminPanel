@@ -1,0 +1,111 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Need help? Get in touch</h1>
+    <h3 class="lead text-center">Contact us using the form below.</h3>
+  </div>
+</div>
+<div class="col-md-12">
+
+  <div class="row">
+    <div class="container">
+
+      <div class="col-lg-12 col-md-8 col-sm-12 col-xs">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+          <mat-tab style="font-weight: 800 !important;" label="Contact Us">
+            <br><br><br>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+
+                <form class="example-form" #add="ngForm" (ngSubmit)="onSubmit(vm)">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>First Name</mat-label>
+                    <!-- Harshith added pattern check in the following line -->
+                    <input matInput ngModel #fname="ngModel" placeholder="First Name" name="fname"
+                      [(ngModel)]="vm.fname" pattern="^[a-z A-Z,.'-]{1,260}$" [readonly]="isReadOnly">
+                    <mat-hint *ngIf="fname.touched && fname.invalid">
+                      <mat-error *ngIf="fname.errors.required">First Name is required</mat-error>
+                      <!-- Harshith added the following line -->
+                      <mat-error *ngIf="fname.errors.pattern">First Name should be in alphabets</mat-error>
+                    </mat-hint>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Last Name</mat-label>
+                    <!-- Harshith added pattern check in the following line -->
+                    <input matInput ngModel #lname="ngModel" name="lname" placeholder="Last Name" [(ngModel)]="vm.lname"
+                      pattern="^[a-z A-Z,.'-]{1,260}$" [readonly]="isReadOnly">
+                    <mat-hint *ngIf="lname.touched && lname.invalid">
+                      <mat-error *ngIf="lname.errors.required">Last Name is required</mat-error>
+                      <!-- Harshith added the following line -->
+                      <mat-error *ngIf="lname.errors.pattern">Last Name should be in alphabets</mat-error>
+                    </mat-hint>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Email Id</mat-label>
+                    <!-- Harshith added pattern check in the following line -->
+                    <input matInput name="email" ngModel #email="ngModel" placeholder="Email" [(ngModel)]="vm.email"
+                      pattern="^[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,125}[a-zA-Z]{2,63}$"
+                      [readonly]="isReadOnly">
+                    <mat-hint *ngIf="email.touched && email.invalid">
+                      <mat-error *ngIf="email.errors.required">Email is required</mat-error>
+                      <!-- Harshith added the following line -->
+                      <mat-error *ngIf="email.errors && email.errors.pattern">Invalid email</mat-error>
+                    </mat-hint>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="max-width:30%;min-width:30%;">
+                    <mat-label>Code</mat-label>
+                    <mat-select ngModel name="countryCode" #countryCode="ngModel" [(ngModel)]="vm.countryCode" required
+                      [disabled]="isMobileCodeReadOnly">
+                      <mat-option value="+1">USA (+1)</mat-option>
+                      <mat-option value="+91">IND (+91)</mat-option>
+                    </mat-select>
+                    <mat-hint *ngIf="countryCode.touched && countryCode.invalid">
+                      <mat-error *ngIf="countryCode.errors.required">Country code is required</mat-error>
+                    </mat-hint>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="max-width:70%;min-width:70%;">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput ngModel #contact="ngModel" name="contact" type="tel" placeholder="Contact"
+                      [(ngModel)]="vm.contact" pattern="^\+?\d{10}$" type="text" minlength="10" maxlength="10" required
+                      [readonly]="isReadOnly">
+                    <mat-hint *ngIf="contact.touched && contact.invalid">
+                      <mat-error *ngIf="contact.errors.required">Contact Info is required</mat-error>
+                      <!-- Harshith added the following line -->
+                      <mat-error *ngIf="contact.errors.minlength || contact.errors.pattern">Invaid Mobile number
+                      </mat-error>
+                    </mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Reason For getting in Touch</mat-label>
+                    <mat-select ngModel name="reason" id="reason" #reason="ngModel" [(ngModel)]="vm.reason"
+                      (selectionChange)="changeProType($event)" required>
+                      <mat-option *ngFor="let reason of reasons" [value]="reason">
+                        {{ reason }}
+                      </mat-option>
+                    </mat-select>
+                    <mat-hint *ngIf="reason.touched && reason.invalid">
+                      <mat-error *ngIf="reason.errors.required">Reason is required</mat-error>
+                    </mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <textarea matInput name="desc" ngModel #desc="ngModel" placeholder="Description"
+                      [(ngModel)]="vm.desc" required></textarea>
+                  </mat-form-field>
+                  <button mat-raised-button color="primary" class="my_button" type="submit"
+                    [disabled]="!add.form.valid">Submit Details</button>
+
+                </form>
+              </div>
+              <div class="col-md-2"></div>
+
+            </div>
+
+
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

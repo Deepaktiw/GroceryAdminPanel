@@ -1,0 +1,26 @@
+<mat-toolbar class="customNavbar staticNav px-5">
+  <mat-toolbar-row>
+    <button mat-icon-button *ngIf="localStorageItem() == 'true' && !isProLandingPage" (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span><img id="navLogo" style="cursor:pointer;" alt="ABC" src="assets/img/admin-panel.png" width="70"
+        [routerLink]="[ '/vendor/manageUser' ]" /></span>
+    <span class="nvSpacer"></span>
+    <span class="navIcon" *ngIf="!(localStorageItem() == 'true')" [routerLink]="[ '/' ]"><button
+        mat-button>About</button></span>
+    <span class="navIcon" *ngIf="!(localStorageItem() == 'true')"><a class="onHoverLink" href="https://basketpe.com"
+        target="_blank" mat-button>Blog</a></span>
+    <span class="navIcon" *ngIf="!(localStorageItem() == 'true')" [routerLink]="[ '/vendor/contactUs' ]"><button
+        mat-button>Help</button></span>
+    <span class="navIcon" *ngIf="!(localStorageItem() == 'true')"><button mat-stroked-button
+        class="border-outline-primary" (click)="httpCall.logOut()" routerLinkActive="active-list-item">Log
+        Out</button></span>
+    <span class="navIcon" *ngIf="localStorageItem() == 'true'">
+      <img src="assets/img/user-small.png" />
+      <span>&nbsp;&nbsp;Welcome&nbsp;{{firstName | titlecase }}</span>
+    </span>
+    <button *ngIf="localStorageItem() == 'true' && isProLandingPage" mat-icon-button (click)="openRightNav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

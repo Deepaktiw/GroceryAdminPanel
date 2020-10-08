@@ -1,0 +1,101 @@
+<section id="consumer-reg">
+  <div class="m-5">
+    <div class="row m-0">
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs">
+        <mat-card id="regCard" class="mat-elevation-z8 text-center">
+          <form class="form" #regForm="ngForm" (ngSubmit)="onSubmit(vm)">
+            <h4 class="pb-4 pt-4">Sign Up for ABC</h4>
+            <mat-card-content>
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" ngModel name="fname" #fname="ngModel" [(ngModel)]="vm.fname"
+                  type="text" required>
+                <mat-icon matSuffix>account_box</mat-icon>
+                <mat-hint *ngIf="fname.touched && fname.invalid">
+                  <mat-error *ngIf="fname.errors.required">First Name is required</mat-error>
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" ngModel name="lname" #lname="ngModel" [(ngModel)]="vm.lname"
+                  type="text" required>
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-hint *ngIf="lname.touched && lname.invalid">
+                  <mat-error *ngIf="lname.errors.required">Last Name is required</mat-error>
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Your Email</mat-label>
+                <input matInput placeholder="Enter Email" ngModel name="email" #email="ngModel" [(ngModel)]="vm.email"
+                  type="email" pattern="^[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,125}[a-zA-Z]{2,63}$"
+                  required>
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-hint *ngIf="email.touched && email.invalid">
+                  <mat-error *ngIf="email.errors.required">Email is required</mat-error>
+                  <mat-error *ngIf="email.errors && email.errors.pattern">Invalid email</mat-error>
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <span matPrefix #countryCode>+1</span>
+                <input matInput placeholder="Enter Mobile Number" ngModel name="mobile" #mobile="ngModel"
+                  [(ngModel)]="vm.mobile" pattern="^\+?\d{10}$" type="text" minlength="10" maxlength="10" required>
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint *ngIf="mobile.touched && mobile.invalid">
+                  <mat-error *ngIf="mobile.errors.required">Mobile number is required</mat-error>
+                  <mat-error *ngIf="mobile.errors.minlength || mobile.errors.pattern">Invaid Mobile number</mat-error>
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="max-width: 100%;">
+                <mat-label>DOB</mat-label>
+                <mat-select ngModel name="yob" #yob="ngModel" [(ngModel)]="vm.yob" type="number" required>
+                  <mat-option *ngFor="let year of years" [value]="year">
+                    {{ year }}
+                  </mat-option>
+                </mat-select>
+                <mat-hint *ngIf="yob.touched && yob.invalid">
+                  <mat-error *ngIf="yob.errors.required">Year of Birth is required</mat-error>
+                </mat-hint>
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="margin-bottom: 24px;">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Set Password" ngModel name="password" #password="ngModel"
+                  [(ngModel)]="vm.password" type="password"
+                  pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#%^`~&amp;*()_+}{&quot;:&apos;;'?/&gt;.&lt;,])(?!.*\s).*$"
+                  minlength="8" required>
+                <mat-icon matSuffix>lock</mat-icon>
+                <mat-hint *ngIf="password.touched && password.invalid">
+                  <mat-error *ngIf="password.errors.required">Password is required</mat-error>
+                  <mat-error *ngIf="password.errors.minlength">Password should be minimum 8 characters</mat-error>
+                  <mat-error *ngIf="password.errors.pattern">Password should contain 1 upper, 1 lower, 1 numerical, 1
+                    special except $</mat-error>
+                </mat-hint>
+              </mat-form-field>
+              <p>By Signing-up, I understand and agree to the
+                <a routerLink="/consumer/consumer-terms-of-service">ABC Terms of Service</a>, including the <a
+                  routerLink="/consumer/consumer-user-agreement">User Agreement</a> and <a
+                  routerLink="/consumer/consumer-privacy-policy">Privacy Policy</a>.
+              </p>
+              <div class="text-center">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!regForm.form.valid">Sign
+                  Up</button>
+              </div>
+            </mat-card-content>
+          </form>
+        </mat-card>
+      </div>
+      <div class="div-center col-lg-8 col-md-6 col-sm-12 col-xs animated fadeIn">
+        <div class="m-5">
+          <h4 class="regPageText pt-5">
+            ABC<p class="pt-3">for grocery</p>
+          </h4>
+          <hr style="text-align:left;margin-left:0">
+          <p style="color:#000;">
+            Don't get stumped by confusing pricing , search and compare prices among products in your
+            area and get the best price before you go.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
